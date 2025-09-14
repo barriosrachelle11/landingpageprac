@@ -1,90 +1,153 @@
 <!DOCTYPE html>
-border: 1px solid #fda4af;
-border-radius: 12px;
-padding: 16px;
-margin: 20px 0;
-}
-.code {
-font-size: 24px;
-font-weight: bold;
-letter-spacing: 3px;
-background: linear-gradient(270deg, #ec4899, #f43f5e, #fb7185);
-background-size: 600% 600%;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: gradientShift 8s ease infinite;
-}
-</style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NaturaBelle Cosmetics - Celebrate Your Natural Glow</title>
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap');
+
+    :root {
+      --primary-gradient: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      --button-gradient: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+      --brand-font: 'Playfair Display', serif;
+      --body-font: 'Open Sans', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--body-font);
+      background: #fffdf9;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      padding: 60px 20px;
+      background: var(--primary-gradient);
+      color: white;
+    }
+
+    header h1 {
+      font-family: var(--brand-font);
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .container h2 {
+      font-family: var(--brand-font);
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+    }
+
+    button {
+      background: var(--button-gradient);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .thank-you {
+      display: none;
+      padding: 20px;
+    }
+
+    .discount {
+      font-size: 1.2rem;
+      margin: 15px 0;
+      font-weight: bold;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .copy-btn {
+      margin-top: 10px;
+      background: var(--primary-gradient);
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<div id="signup-section">
-<h1 class="animated-gradient-text" style="font-size: 36px; font-family: serif; margin-bottom: 10px;">
-NaturaBelle Cosmetics
-</h1>
-<p style="font-style: italic; color: #374151; margin-bottom: 20px;">
-"Celebrate Your Natural Glow"
-</p>
-<p style="color: #4b5563; margin-bottom: 30px;">
-Discover skincare and beauty products designed to enhance your natural beauty with safe, eco-friendly ingredients. Glow confidently with NaturaBelle.
-</p>
-<h2 class="animated-gradient-text" style="font-size: 24px; margin-bottom: 20px;">Join the Glow Club ✨</h2>
-<form id="signup-form">
-<input type="email" id="email" placeholder="Enter your email" required />
-<button type="submit" class="animated-gradient-bg">Subscribe Now</button>
-</form>
-<p style="font-size: 12px; color: #9ca3af; margin-top: 10px;">We respect your privacy. Unsubscribe anytime.</p>
-</div>
 
+  <header>
+    <h1>NaturaBelle Cosmetics</h1>
+    <p>✨ Celebrate Your Natural Glow ✨</p>
+  </header>
 
-<div id="thankyou-section" class="hidden">
-<h2 class="animated-gradient-text" style="font-size: 28px; font-family: serif; margin-bottom: 15px;">
-Thank You for Joining! 🌸
-</h2>
-<p style="color: #374151; margin-bottom: 10px;">Welcome to the <strong>Glow Club</strong>! You’ll now receive exclusive tips, offers, and updates straight to your inbox.</p>
-<p class="animated-gradient-text" style="font-size: 18px; margin-bottom: 20px;">
-🎁 As a warm welcome, enjoy <u>10% off your first order</u>!
-</p>
+  <div class="container" id="signup-box">
+    <h2>Join Our Beauty Circle</h2>
+    <p>Get exclusive tips, natural skincare secrets, and <strong>10% off your first order</strong> when you sign up!</p>
+    <form id="signup-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <br>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
 
+  <div class="container thank-you" id="thank-you-box">
+    <h2>Welcome to NaturaBelle! 🌸</h2>
+    <p>Thank you for joining us. Here’s your special reward:</p>
+    <div class="discount">Your Code: <strong id="discount-code">GLOW10</strong></div>
+    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+    <p style="margin-top:15px;"><a href="#" onclick="backHome()">← Back to Home</a></p>
+  </div>
 
-<div class="discount-box">
-<p style="color:#374151; margin-bottom: 8px;">Use this code at checkout:</p>
-<p class="code">GLOW10</p>
-<button id="copy-btn" class="animated-gradient-bg" style="margin-top: 12px;">Copy Code</button>
-</div>
+  <script>
+    const form = document.getElementById("signup-form");
+    const signupBox = document.getElementById("signup-box");
+    const thankYouBox = document.getElementById("thank-you-box");
 
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      signupBox.style.display = "none";
+      thankYouBox.style.display = "block";
+    });
 
-<button id="back-btn" class="animated-gradient-bg">Back to Home</button>
-</div>
-</div>
+    function copyCode() {
+      const code = document.getElementById("discount-code").innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert("Code copied: " + code);
+      });
+    }
 
+    function backHome() {
+      thankYouBox.style.display = "none";
+      signupBox.style.display = "block";
+    }
+  </script>
 
-<script>
-const form = document.getElementById('signup-form');
-const signupSection = document.getElementById('signup-section');
-const thankyouSection = document.getElementById('thankyou-section');
-const copyBtn = document.getElementById('copy-btn');
-const backBtn = document.getElementById('back-btn');
-
-
-form.addEventListener('submit', function(e) {
-e.preventDefault();
-signupSection.classList.add('hidden');
-thankyouSection.classList.remove('hidden');
-});
-
-
-copyBtn.addEventListener('click', function() {
-navigator.clipboard.writeText('GLOW10');
-copyBtn.textContent = 'Copied!';
-setTimeout(() => copyBtn.textContent = 'Copy Code', 2000);
-});
-
-
-backBtn.addEventListener('click', function() {
-thankyouSection.classList.add('hidden');
-signupSection.classList.remove('hidden');
-});
-</script>
 </body>
-</html>
+</html>
+
