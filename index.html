@@ -54,47 +54,10 @@
       margin-bottom: 10px;
     }
 
-    input {
-      width: 90%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-    }
-
-    button {
-      background: var(--button-gradient);
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    .thank-you {
-      display: none;
-      padding: 20px;
-    }
-
-    .discount {
-      font-size: 1.2rem;
-      margin: 15px 0;
-      font-weight: bold;
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .copy-btn {
+    .note {
+      font-size: 0.9rem;
+      color: #666;
       margin-top: 10px;
-      background: var(--primary-gradient);
     }
   </style>
 </head>
@@ -105,49 +68,19 @@
     <p>✨ Celebrate Your Natural Glow ✨</p>
   </header>
 
-  <div class="container" id="signup-box">
+  <div class="container">
     <h2>Join Our Beauty Circle</h2>
     <p>Get exclusive tips, natural skincare secrets, and <strong>10% off your first order</strong> when you sign up!</p>
-    <form id="signup-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <br>
-      <button type="submit">Sign Up</button>
-    </form>
+
+    <!-- 🔹 Paste your Klaviyo embed code below -->
+    <div class="klaviyo-form-PLACEHOLDER"></div>
+    <script src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YOUR_ID" async></script>
+    <!-- 🔹 End Klaviyo embed -->
+
+    <p class="note">Your details are safe with us. Unsubscribe anytime.</p>
   </div>
-
-  <div class="container thank-you" id="thank-you-box">
-    <h2>Welcome to NaturaBelle! 🌸</h2>
-    <p>Thank you for joining us. Here’s your special reward:</p>
-    <div class="discount">Your Code: <strong id="discount-code">GLOW10</strong></div>
-    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-    <p style="margin-top:15px;"><a href="#" onclick="backHome()">← Back to Home</a></p>
-  </div>
-
-  <script>
-    const form = document.getElementById("signup-form");
-    const signupBox = document.getElementById("signup-box");
-    const thankYouBox = document.getElementById("thank-you-box");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      signupBox.style.display = "none";
-      thankYouBox.style.display = "block";
-    });
-
-    function copyCode() {
-      const code = document.getElementById("discount-code").innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        alert("Code copied: " + code);
-      });
-    }
-
-    function backHome() {
-      thankYouBox.style.display = "none";
-      signupBox.style.display = "block";
-    }
-  </script>
 
 </body>
 </html>
+
 
